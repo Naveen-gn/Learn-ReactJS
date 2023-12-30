@@ -1,21 +1,20 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Container, Row, Col } from "react-bootstrap";
+import { useState } from 'react';
 function App() {
-const h1styles={
-  color:'green',
-  fontSize:'80px'
-
-}
+  const [count,setcount]=useState(1)
+  function increasevalue(){
+    setcount(count+1)
+  }
+  function decreasevalue(){
+    setcount(count-1)
+  }
   return (
-   <div>
-    <h1 style={h1styles} >hii</h1>
+    <div>
+      <h1>{count}</h1>
+      <button onClick={()=>increasevalue()} >Increase</button>
+      <button onClick={()=>decreasevalue()} >Decrease</button>
     </div>
-
-
-
   );
- 
 }
 
 export default App;
