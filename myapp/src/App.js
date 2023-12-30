@@ -1,18 +1,29 @@
 import './App.css';
 import { useState } from 'react';
 function App() {
-  const [count,setcount]=useState(1)
-  function increasevalue(){
-    setcount(count+1)
-  }
-  function decreasevalue(){
-    setcount(count-1)
-  }
+  const [obj,setobj]=useState({
+    name:'apple',
+    year:'2000',
+    price:'100000',
+    Model:'2023'
+  })
+
+ function changeValue(){
+  setobj(
+    (PreValues)=>{
+      return {...PreValues, name:'Samsung'}
+    }
+  )
+ }
+
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={()=>increasevalue()} >Increase</button>
-      <button onClick={()=>decreasevalue()} >Decrease</button>
+      <h1>Name: {obj.name}</h1>
+      <h1>Year: {obj.year}</h1>
+      <h1>Price: {obj.price}</h1>
+      <h1>Model: {obj.Model}</h1>
+      <button onClick={()=>{changeValue()}} >Change Name</button>
+      
     </div>
   );
 }
